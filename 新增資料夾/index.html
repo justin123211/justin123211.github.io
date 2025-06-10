@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <style>
+        .o {
+            color: darkgoldenrod;
+        }
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <link href="D:\新增資料夾\global.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    
+    <h1 class="o">BMI Calculator</h1>
+    
+    <label class="height">
+        身高 (公尺):
+        <input type="number" id="height" step="0.01">
+    </label>
+    <br>
+    <label class="weight">
+        體重 (公斤):
+        <input type="number" id="weight" step="0.1">
+    </label>
+    <br>
+    <button onclick="calculateBMI()" class="button-1">計算 BMI</button>
+
+    <script>
+        function calculateBMI() {
+            let height = parseFloat(document.getElementById("height").value);
+            let weight = parseFloat(document.getElementById("weight").value);
+            
+            if (!height || !weight || height <= 0 || weight <= 0) {
+                alert("請輸入有效的身高與體重");
+                return;
+            }
+
+            let BMI = weight / (height * height);
+            alert("你的 BMI 是: " + BMI.toFixed(2));
+        }
+    </script>
+</body>
+</html>
